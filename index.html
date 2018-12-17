@@ -10,16 +10,34 @@
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/project_universal_store.json", {onProgress: UnityProgress});
+		
+		
+		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/project_universal_store.json", {onProgress: UnityProgress});
+	  
+		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/project_universal_store.json", {onProgress: UnityProgress, Module: {
+			onRuntimeInitialized: function () {
+				UnityProgress(gameInstance, "complete");
+				
+				var isMobile = UnityLoader.SystemInfo.mobile;
+				if(isMobile === false){
+					document.getElementById('footish').style.display = 'block';
+				}
+				else if(isMobile === true){
+					document.getElementById('footish').style.display = 'none';
+				}
+			}
+		}});
     </script>
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
+    <div class="webgl-content" style="width:100%; height: 90%">
+      <div id="gameContainer" style="width: 100%; height:100%"></div>
+      <div class="footer" id="footish">
         <!--<div class="webgl-logo"></div> -->
-        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1); gameContainer.requestPointerLock();"></div>
-        <div class="title">Project Universal Store</div>
+		<div id="playOption" style="height: 80%;">
+			<div class="title">Play Project Universal Store</div>
+			<div class="fullscreen" onclick="gameInstance.SetFullscreen(1); gameContainer.requestPointerLock();"></div>
+		</div>
       </div>
     </div>
   </body>
