@@ -10,9 +10,6 @@
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
     <script>
-		
-		
-		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/project_universal_store.json", {onProgress: UnityProgress});
 	  
 		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/project_universal_store.json", {onProgress: UnityProgress, Module: {
 			onRuntimeInitialized: function () {
