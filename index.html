@@ -16,25 +16,26 @@
 				UnityProgress(gameInstance, "complete");
 				
 				var isMobile = UnityLoader.SystemInfo.mobile;
-				if(isMobile === false){
-					document.getElementById('footish').style.display = 'block';
-				}
-				else if(isMobile === true){
-					document.getElementById('footish').style.display = 'none';
-				}
+				//if(isMobile === false){
+					//document.getElementById('footish').style.display = 'block';
+				//}
+				//else if(isMobile === true){
+					//document.getElementById('footish').style.display = 'none';
+				//}
 			}
 		}});
     </script>
   </head>
   <body>
     <div class="webgl-content" style="width:100%; height: 90%">
-      <div id="gameContainer" style="width: 100%; height:100%"></div>
-      <div class="footer" id="footish">
+		<input type="button" value="Fullscreen" style="position:absolute;top:-3%;left:2%;z-index:99999999;width:18%;height:7%;background-color:turquoise;" onclick="gameInstance.SetFullscreen(1); gameContainer.requestPointerLock();" />
+		<div id="gameContainer" style="width: 100%; height:100%"></div>
+		<div class="footer" id="footish">
         <!--<div class="webgl-logo"></div> -->
-		<div id="playOption" style="height: 80%;">
+		<!-- <div id="playOption" style="height: 80%;">
 			<div class="title">Play Project Universal Store</div>
 			<div class="fullscreen" onclick="gameInstance.SetFullscreen(1); gameContainer.requestPointerLock();"></div>
-		</div>
+		</div> -->
       </div>
     </div>
   </body>
