@@ -16,6 +16,8 @@
 				UnityProgress(gameInstance, "complete");
 				
 				var isMobile = UnityLoader.SystemInfo.mobile;
+				
+				var canvas = document.getElementById('#canvas');
 				//if(isMobile === false){
 					//document.getElementById('footish').style.display = 'block';
 				//}
@@ -28,7 +30,7 @@
   </head>
   <body>
     <div class="webgl-content" style="width:100%; height: 90%">
-		<input type="button" value="Fullscreen" style="position:absolute;top:-3%;left:2%;z-index:99999999;width:18%;height:7%;background-color:turquoise;" onclick="gameInstance.SetFullscreen(1); gameContainer.requestPointerLock();" />
+		<input type="button" value="Fullscreen" style="position:absolute;top:-3%;left:2%;z-index:99999999;width:18%;height:7%;background-color:turquoise;" onclick="var canvas = document.getElementById('#canvas'); canvas.requestPointerLock(); gameInstance.SetFullscreen(1);" />
 		<div id="gameContainer" style="width: 100%; height:100%"></div>
 		<div class="footer" id="footish">
         <!--<div class="webgl-logo"></div> -->
